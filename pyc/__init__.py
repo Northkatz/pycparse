@@ -7,10 +7,10 @@ import pyc.magic
 class PycHeader:
     def __init__(self):
         self.magic = 0
-        self.bitfield = 0
-        self.timestamp = 0
-        self.filesize = 0
-        self.hash_val = 0
+        self.bitfield = None
+        self.timestamp = None
+        self.filesize = None
+        self.hash_val = None
         self.headersize = 12
 
     def get_magic(self):
@@ -70,4 +70,5 @@ class PycHeader:
 def get_code_info(data, header):
     marshalled = data[header.headersize:]
     code_object = marshal.loads(marshalled)
+
     return code_object
